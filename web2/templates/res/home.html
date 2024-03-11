@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+    {% if username %}
+        <h1>Welcome {{ username }}</h1>
+    {% elif users %}
+        {% for username in users %}
+            <h1>Welcome {{ username }}</h1>
+        {% endfor %}
+    {% else %}
+        <a href={{ url_for('index') }}><button>Index</button></a>
+    {% endif %}
+{% endblock %}
